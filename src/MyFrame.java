@@ -1,7 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MyFrame extends JFrame{
     JTextField textField;
@@ -12,7 +9,7 @@ public class MyFrame extends JFrame{
         int buttonSizeX = 60;
         int buttonSizeY = 60;
         int rows = 3;
-        int columns = 4;
+        int columns = 3;
 
         for (int y=0; y < rows; y++){
             for (int x=0; x < columns; x++){
@@ -22,17 +19,46 @@ public class MyFrame extends JFrame{
                         buttonStartY + buttonSizeY * rows - buttonSizeY * y,
                         buttonSizeX,
                         buttonSizeY);
-                button.addActionListener(e -> addToField(num));
+                button.addActionListener(e -> addNumberToField(num));
                 this.add(button);
             }
         }
-        JButton zero = new JButton(Integer.toString(0));
-        zero.setBounds(buttonStartX + buttonSizeX,
-                buttonStartY + buttonSizeY * (rows + 1),
+
+        ButtonData zeroData = new ButtonData(1, 4, "0");
+        JButton zero = new JButton(zeroData.sign);
+        zero.setBounds(buttonStartX + buttonSizeX * zeroData.x,
+                buttonStartY + buttonSizeY * zeroData.y,
                 buttonSizeX,
                 buttonSizeY);
-        zero.addActionListener(e -> addToField(0));
+        zero.addActionListener(e -> addNumberToField(0));
         this.add(zero);
+
+        ButtonData equalsData = new ButtonData(2, 4, "=");
+        JButton equals = new JButton(equalsData.sign);
+        equals.setBounds(buttonStartX + buttonSizeX * equalsData.x,
+                buttonStartY + buttonSizeY * equalsData.y,
+                buttonSizeX,
+                buttonSizeY);
+        equals.addActionListener(e -> compute());
+        this.add(equals);
+
+
+        ButtonData[] signButtons = new ButtonData[5];
+        signButtons[0] = new ButtonData(3, 1, "*");
+        signButtons[1] = new ButtonData(3, 2, "/");
+        signButtons[2] = new ButtonData(3, 3, "+");
+        signButtons[3] = new ButtonData(3, 4, "-");
+        signButtons[4] = new ButtonData(0, 4, ".");
+
+        for(ButtonData b: signButtons){
+            JButton button = new JButton(b.sign);
+            button.setBounds(buttonStartX + buttonSizeX * b.x,
+                    buttonStartY + buttonSizeY * b.y,
+                    buttonSizeX,
+                    buttonSizeY);
+            button.addActionListener(e -> addSignToField(b.sign));
+            this.add(button);
+        }
 
         textField = new JTextField(20);
         textField.setBounds(2, 2, 240, 50);
@@ -44,7 +70,15 @@ public class MyFrame extends JFrame{
         this.setVisible(true);
     }
 
-    void addToField(int n){
+    private void compute() {
+        System.out.println("equals");
+    }
+
+    private void addNumberToField(int n){
         textField.setText(textField.getText() + n);
+    }
+
+    private void addSignToField(String s){
+        textField.setText(textField.getText() + " " + s + " ");
     }
 }
