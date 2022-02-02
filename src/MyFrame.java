@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyFrame extends JFrame{
+    private String field = "";
+
     MyFrame(){
         int buttonStartX = 100;
         int buttonStartY = 100;
@@ -32,7 +34,8 @@ public class MyFrame extends JFrame{
         this.setVisible(true);
     }
 
-    static void addToField(int n){
-        System.out.println("Button " + n);
+    void addToField(int n){
+        this.field += Integer.toString(n);
+        System.out.println(this.field);
     }
 }
