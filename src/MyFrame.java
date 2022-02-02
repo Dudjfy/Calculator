@@ -26,6 +26,13 @@ public class MyFrame extends JFrame{
                 this.add(button);
             }
         }
+        JButton zero = new JButton(Integer.toString(0));
+        zero.setBounds(buttonStartX + buttonSizeX,
+                buttonStartY + buttonSizeY * (rows + 1),
+                buttonSizeX,
+                buttonSizeY);
+        zero.addActionListener(e -> addToField(0));
+        this.add(zero);
 
         textField = new JTextField(20);
         textField.setBounds(2, 2, 240, 50);
