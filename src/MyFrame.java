@@ -7,12 +7,12 @@ public class MyFrame extends JFrame{
     private String field = "";
 
     MyFrame(){
-        int buttonStartX = 100;
-        int buttonStartY = 100;
-        int buttonSizeX = 50;
-        int buttonSizeY = 50;
+        int buttonStartX = 2;
+        int buttonStartY = 0;
+        int buttonSizeX = 60;
+        int buttonSizeY = 60;
         int rows = 3;
-        int columns = 3;
+        int columns = 4;
 
         for (int y=0; y < rows; y++){
             for (int x=0; x < columns; x++){
@@ -27,10 +27,16 @@ public class MyFrame extends JFrame{
             }
         }
 
+        JTextField textField = new JTextField(20);
+        textField.setBounds(2, 2, 240, 50);
+//        textField.setPreferredSize(new Dimension(250, 50));
+        this.add(textField);
+
+//        this.pack();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
-        this.setSize(300, 500);
+        this.setSize(260, 500);
         this.setVisible(true);
     }
 
