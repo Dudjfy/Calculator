@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyFrame extends JFrame{
-    private String field = "";
+    JTextField textField;
 
     MyFrame(){
         int buttonStartX = 2;
@@ -27,12 +27,9 @@ public class MyFrame extends JFrame{
             }
         }
 
-        JTextField textField = new JTextField(20);
+        textField = new JTextField(20);
         textField.setBounds(2, 2, 240, 50);
-//        textField.setPreferredSize(new Dimension(250, 50));
         this.add(textField);
-
-//        this.pack();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
@@ -41,7 +38,6 @@ public class MyFrame extends JFrame{
     }
 
     void addToField(int n){
-        this.field += Integer.toString(n);
-        System.out.println(this.field);
+        textField.setText(textField.getText() + n);
     }
 }
