@@ -15,13 +15,12 @@ public class MyFrame extends JFrame{
         for (int y=0; y < rows; y++){
             for (int x=0; x < columns; x++){
                 int num = y * columns + x + 1;
-                JButton button = new JButton();
+                JButton button = new JButton(Integer.toString(num));
                 button.setBounds(buttonStartX + buttonSizeX * x,
                         buttonStartY + buttonSizeY * rows - buttonSizeY * y,
                         buttonSizeX,
                         buttonSizeY);
                 button.addActionListener(e -> System.out.println("Button " + num));
-                button.setText(Integer.toString(num));
                 this.add(button);
             }
         }
