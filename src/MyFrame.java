@@ -20,7 +20,7 @@ public class MyFrame extends JFrame{
                         buttonStartY + buttonSizeY * rows - buttonSizeY * y,
                         buttonSizeX,
                         buttonSizeY);
-                button.addActionListener(e -> System.out.println("Button " + num));
+                button.addActionListener(e -> addToField(num));
                 this.add(button);
             }
         }
@@ -30,7 +30,9 @@ public class MyFrame extends JFrame{
         this.setLayout(null);
         this.setSize(300, 500);
         this.setVisible(true);
+    }
 
-
+    static void addToField(int n){
+        System.out.println("Button " + n);
     }
 }
