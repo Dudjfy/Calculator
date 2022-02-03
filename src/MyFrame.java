@@ -2,8 +2,6 @@ import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 

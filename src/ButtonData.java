@@ -1,5 +1,4 @@
 import java.awt.event.ActionListener;
-import java.util.function.Consumer;
 
 public class ButtonData {
     String sign;
