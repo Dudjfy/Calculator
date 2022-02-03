@@ -1,3 +1,6 @@
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -67,7 +70,11 @@ public class MyFrame extends JFrame{
     }
 
     private void compute() {
-        System.out.println("equals");
+//        System.out.println("equals");
+        Expression expression = new ExpressionBuilder(textField.getText()).build();
+        double result = expression.evaluate();
+        System.out.println(result);
+
     }
 
     private void addToField(String s){
