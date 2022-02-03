@@ -26,7 +26,6 @@ public class MyFrame extends JFrame{
                           int fieldSizeX,
                           int fieldSizeY,
                           int columns) {
-
         textField = new JTextField(columns);
         textField.setBounds(fieldStartX, fieldStartY, fieldSizeX, fieldSizeY);
         this.add(textField);
@@ -38,7 +37,6 @@ public class MyFrame extends JFrame{
                             int buttonSizeY,
                             int rows,
                             int columns){
-
         List<ButtonData> buttons = new ArrayList<>();
         for (int y=0; y < rows; y++){
             for (int x=0; x < columns; x++){
