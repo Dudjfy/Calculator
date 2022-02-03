@@ -13,11 +13,11 @@ public class MyFrame extends JFrame{
     MyFrame(){
         addButtons(2, 0, 60, 60, 3, 3);
 
-        addField(2, 2, 250, 50, 20);
+        addField(2, 2, 240, 50, 20);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
-        this.setSize(260, 500);
+        this.setSize(260, 341);
         this.setVisible(true);
     }
 
@@ -70,11 +70,8 @@ public class MyFrame extends JFrame{
     }
 
     private void compute() {
-//        System.out.println("equals");
         Expression expression = new ExpressionBuilder(textField.getText()).build();
-        double result = expression.evaluate();
-        System.out.println(result);
-
+        textField.setText(String.valueOf(expression.evaluate()));
     }
 
     private void addToField(String s){
