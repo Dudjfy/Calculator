@@ -8,9 +8,9 @@ public class MyFrame extends JFrame{
     JTextField textField;
 
     MyFrame(){
-        addButtons();
+        addButtons(2, 0, 60, 60, 3, 3);
 
-        addField();
+        addField(2, 2, 250, 50, 20);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
@@ -18,19 +18,23 @@ public class MyFrame extends JFrame{
         this.setVisible(true);
     }
 
-    private void addField() {
-        textField = new JTextField(20);
-        textField.setBounds(2, 2, 240, 50);
+    private void addField(int fieldStartX,
+                          int fieldStartY,
+                          int fieldSizeX,
+                          int fieldSizeY,
+                          int columns) {
+
+        textField = new JTextField(columns);
+        textField.setBounds(fieldStartX, fieldStartY, fieldSizeX, fieldSizeY);
         this.add(textField);
     }
 
-    private void addButtons(){
-        int buttonStartX = 2;
-        int buttonStartY = 0;
-        int buttonSizeX = 60;
-        int buttonSizeY = 60;
-        int rows = 3;
-        int columns = 3;
+    private void addButtons(int buttonStartX,
+                            int buttonStartY,
+                            int buttonSizeX,
+                            int buttonSizeY,
+                            int rows,
+                            int columns){
 
         List<ButtonData> buttons = new ArrayList<>();
         for (int y=0; y < rows; y++){
